@@ -1,0 +1,4 @@
+This project is based on web scraping data from https://www.masslottery.com/games/lottery/search/results-lottery.html?game_id=12&mode=1&year=2012&month=12&x=5&y=13.
+(1) Database Table "MassCash" is created to store data from website on a daily basis
+(2) Data is collected and converted into graphs and various statistics 
+(3) Users are allowed for interactive/dynamic graph selection and views
