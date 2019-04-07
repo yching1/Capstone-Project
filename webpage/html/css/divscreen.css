@@ -1,0 +1,107 @@
+/* Split the screen in half */
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 20%;
+  overflow-x: auto;
+  padding-top: 20px;
+  vertical-align: top;
+}
+
+.split20 {
+  height: 60%;
+  width: 20%;
+  position: fixed;
+  z-index: 1;
+  top: 20%;
+  overflow-x: auto;
+  padding-top: 20px;
+  vertical-align: top;
+}
+
+.split30 {
+  height: 60%;
+  width: 30%;
+  position: fixed;
+  z-index: 1;
+  top: 20%;
+  overflow-x: auto;
+  padding-top: 20px;
+  vertical-align: top;
+}
+
+.split40 {
+  height: 60%;
+  width: 40%;
+  position: fixed;
+  z-index: 1;
+  top: 20%;
+  overflow-x: auto;
+  padding-top: 20px;
+  vertical-align: top;
+}
+
+.split60 {
+  height: 60%;
+  width: 60%;
+  position: fixed;
+  z-index: 1;
+  top: 20%;
+  overflow-x: auto;
+  padding-top: 20px;
+  vertical-align: top;
+}
+
+.split70 {
+  height: 60%;
+  width: 70%;
+  position: fixed;
+  z-index: 1;
+  top: 20%;
+  overflow-x: auto;
+  padding-top: 20px;
+  vertical-align: top;
+}
+
+.split80 {
+  height: 60%;
+  width: 80%;
+  position: fixed;
+  z-index: 1;
+  top: 20%;
+  overflow-x: auto;
+  padding-top: 20px;
+  vertical-align: top;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color: white;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  background-color: white;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+/*  top: 50%; */
+  left: 50%;
+  transform: translate(-50%, 0%);
+  text-align: center;
+  vertical-align: top;
+}
+
+/* Style the image inside the centered container, if needed */
+.centered img {
+  width: 150px;
+  border-radius: 50%;
+}
+
+

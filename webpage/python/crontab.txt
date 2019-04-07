@@ -1,0 +1,1 @@
+*/10 21-23 * * * /usr/bin/python3.6 /root/Workspace/capstone/masscashDBfeeder.py >> feederDB.log

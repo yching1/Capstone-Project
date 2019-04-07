@@ -1,0 +1,46 @@
+function luckystats() {
+
+  var querytxt, querytxtJSON, xmlhttp; 
+  var lucky = [];
+
+  lucky.push(document.getElementById("lucky1").value);
+  lucky.push(document.getElementById("lucky2").value);
+  lucky.push(document.getElementById("lucky3").value);
+  lucky.push(document.getElementById("lucky4").value);
+  lucky.push(document.getElementById("lucky5").value);
+  lucky.sort(function(a, b){return a-b});
+
+  document.getElementById("luckysorted").innerHTML = lucky[0] + "-" + lucky[1] + "-" + lucky[2] + "-" + lucky[3] + "-" + lucky[4]
+  querytxt = "SELECT * from MassCashTbl where ordseq = '" + lucky[0] + "-" + lucky[1] + "-" + lucky[2] + "-" + lucky[3] + "-" + lucky[4] + "';"
+  querytxtJSON = JSON.stringify(querytxt);
+  // Returns successful data submission message when the entered information is stored in database.
+  if (querytxt == '') {
+    alert("Please input the query");
+  } else if (querytxt.toLowerCase().includes("insert")) {
+    alert("Invalid word in query: INSERT");
+  } else if (querytxt.toLowerCase().includes("grant")) { 
+    alert("Invalid word in query: GRANT");
+  } else if (querytxt.toLowerCase().includes("create")) {
+    alert("Invalid word in query: CREATE");
+  } else {
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log(this.responseText);
+        console.log(this.responseText.length);
+        if (this.responseText.length <=3) {
+          document.getElementById("wasitdrawn").innerHTML = "Such number combination never won a prize... Until now...";
+        } else {
+//          document.getElementById("wasitdrawn").innerHTML = this.responseText;
+          theresult = this.responseText;
+          JSONtheresult = JSON.stringify(theresult);
+          createTableFromJSON(theresult,"wasitdrawn");
+        }
+      }
+    }
+    xmlhttp.open("POST", "php/freequery.php?querytxt=" + querytxtJSON, true);
+    xmlhttp.send();	
+  }
+  return false;
+}
+

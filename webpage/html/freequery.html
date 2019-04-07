@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Scope selector form</title>
+
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.scrollbar/0.2.11/jquery.scrollbar.min.css" rel="stylesheet">
+    <link href="css/nth-tabs.min.css" rel="stylesheet">
+    <link href="css/nth-icons.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.scrollbar/0.2.11/jquery.scrollbar.min.js"></script>
+    <script src="js/jsquery.js"></script>
+    <script src="js/jstable.js"></script>
+    <script src="js/jsform.js"></script>
+    <script src="js/jsluckystats.js"></script>
+  <style>
+        th, td, p, input {
+            font:14px Verdana;
+        }
+        table, th, td 
+        {
+            border: solid 1px #DDD;
+            border-collapse: collapse;
+            padding: 2px 3px;
+            text-align: center;
+        }
+        th {
+            font-weight:bold;
+        }
+  </style>
+</head>
+<body>
+      <h2>Submit your own mySQL query:</h2>
+      <form id="form" name="form">
+        <div>
+          <input id="querytxt" type="text" size="80">
+          <input id="submit" onclick="freequery()" type="button" value="Submit">
+        </div>
+      </form>
+      <br>
+      <p>
+        <textarea id = "queryresult" rows = "15" cols = "80">Result</textarea>
+      </p>
+      <p id="showdata"></p>
+  </body>
+</html>
