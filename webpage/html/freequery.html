@@ -49,14 +49,14 @@
 <!--
           <input id="submit" onclick="freequery()" type="button" value="Submit">
 //-->
-          <input id="submit" onclick="freequery(document.getElementById('querytxt').value,document.getElementById('showdata').value)" type="button" value="Submit">
+          <input id="submit" onclick="freequery(document.getElementById('querytxt').value,'queryresult','qresulttable')" type="button" value="Submit">
         </div>
       </form>
       <br>
       <p>
-        <textarea id = "queryresult" rows = "15" cols = "50">Result</textarea>
+        <textarea id = "queryresult" rows = "15" cols = "50"></textarea>
       </p>
-      <p id="showdata"></p>
+      <p id="qresulttable"></p>
     </div>
     <div class="split60 right">
     <h2>Graph:</h2>

@@ -17,9 +17,8 @@ function genquery(querytxt, cb) {
     xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        console.log('Query response: ' + this.responseText);
-        console.log('Query response size: ' + this.responseText.length);
-//        return (this.responseText);
+//        console.log('Query response: ' + this.responseText);
+//        console.log('Query response size: ' + this.responseText.length);
         if( typeof cb === 'function' )
           cb(xmlhttp.responseText);
       }
