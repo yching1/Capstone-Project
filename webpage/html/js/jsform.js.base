@@ -1,7 +1,6 @@
 function freequery() {
   var querytxt, querytxtJSON, xmlhttp; 
   querytxt = document.getElementById("querytxt").value;
-  console.log(querytxt);
   querytxtJSON = JSON.stringify(querytxt);
   // Returns successful data submission message when the entered information is stored in database.
   if (querytxt == '') {
@@ -17,10 +16,12 @@ function freequery() {
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         document.getElementById("queryresult").innerHTML = this.responseText;
+        theresult = document.getElementById("queryresult").value
+        JSONtheresult = JSON.stringify(theresult)
+        createTableFromJSON(theresult,"showdata");
       }
     }
-//    console.log(querytxtJSON);
-    xmlhttp.open("POST", "../integtest1/php/freequery.php?querytxt=" + querytxtJSON, true);
+    xmlhttp.open("POST", "php/freequery.php?querytxt=" + querytxtJSON, true);
     xmlhttp.send();	
   }
   return false;
