@@ -9,7 +9,7 @@ function addData(data) {
 
 }
 
-function createGraphFromJSON(queryresult,container) {
+function createGraphFromJSON(queryresult,container,varx) {
     console.log("Creating graph...");
     var JSONqueryresult = JSON.parse(queryresult);
     console.log(JSONqueryresult.length);
@@ -24,20 +24,24 @@ function createGraphFromJSON(queryresult,container) {
         }
     }
     // CREATE DYNAMIC GRAPH.
-    var graph = document.createElement("graph");
+    var table = document.createElement("table");
     // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
     var tr = table.insertRow(-1); // TABLE ROW.
     for (var i = 0; i < col.length; i++) {
-        var th = document.createElement("th"); // TABLE HEADER.
-        th.innerHTML = col[i];
-        tr.appendChild(th);
+        if (col[i] === varx) {
+          var th = document.createElement("th"); // TABLE HEADER.
+          th.innerHTML = col[i];
+          tr.appendChild(th);
+        }
     }
     // ADD JSON DATA TO THE TABLE AS ROWS.
     for (var i = 0; i < JSONqueryresult.length; i++) {
         tr = table.insertRow(-1);
         for (var j = 0; j < col.length; j++) {
-            var tabCell = tr.insertCell(-1);
-            tabCell.innerHTML = JSONqueryresult[i][col[j]];
+            if (col[j] === varx) {
+                var tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = JSONqueryresult[i][col[j]];
+            }
         }
     }
     // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.

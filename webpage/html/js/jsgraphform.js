@@ -1,16 +1,4 @@
 // PREPARE DATA FOR GRAPH
-
-function addData(data) {
-	for (var i = 0; i < data.length; i++) {
-		dataPoints.push({
-			x: new Date(data[i].date),
-			y: data[i].units
-		});
-	}
-	chart.render();
-
-}
-
 function buildgraph(queryresult,varx) {
     console.log("Preparing variables for graph...");
     var JSONqueryresult = JSON.parse(queryresult);
@@ -27,18 +15,19 @@ function buildgraph(queryresult,varx) {
         }
     }
 
-    let dropdown = document.getElementById('varx');
+    let dropdown = document.getElementById(varx);
     dropdown.length = 0;
 
     let defaultOption = document.createElement('option');
 
     for (let i = 0; i < count; i++) {
       option = document.createElement('option');
-      option.text = col[i]
+      option.text = col[i];
       option.value = col[i];
       dropdown.add(option);
     }
-    defaultOption.text = col[0];
-    dropdown.add(defaultOption);
+//    defaultOption.text = col[0];
     dropdown.selectedIndex = 0;
+    createGraphFromJSON(queryresult,'thegraph', document.getElementById(varx).value);
+
 }

@@ -66,9 +66,11 @@
     <h2>Graph:</h2>
       <div>
         Choose X-axis variable: 
-        <select id="varx" name="varx"></select>
+        <select id="varx" name="varx" onchange="createGraphFromJSON(document.getElementById('queryresult').value,'thegraph',document.getElementById('varx').value)"></select>
+        <br>
+        <br>
+        <p id="thegraph"></p>
       </div>
-      <p id="thegraph"></p>
     </div>
   </body>
 </html>
