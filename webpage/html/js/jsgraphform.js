@@ -1,4 +1,4 @@
-// PREPARE DATA FOR GRAPH
+// X-AXIS VARIABLE DROPDOWN LIST
 function buildgraph(queryresult,varx) {
     console.log("Preparing variables for graph...");
     var JSONqueryresult = JSON.parse(queryresult);
@@ -29,5 +29,4 @@ function buildgraph(queryresult,varx) {
 //    defaultOption.text = col[0];
     dropdown.selectedIndex = 0;
     createGraphFromJSON(queryresult,'thegraph', document.getElementById(varx).value);
-
 }
