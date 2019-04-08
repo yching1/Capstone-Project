@@ -10,9 +10,7 @@ function addData(data) {
 }
 
 function createGraphFromJSON(queryresult,container) {
-    // EXTRACT VALUE FOR HTML HEADER.
     console.log("Creating graph...");
-//    var JSONqueryresult = JSON.parse(document.getElementById(queryresult).value);
     var JSONqueryresult = JSON.parse(queryresult);
     console.log(JSONqueryresult.length);
     var count = Object.keys(JSONqueryresult).length;
@@ -25,8 +23,8 @@ function createGraphFromJSON(queryresult,container) {
             }
         }
     }
-    // CREATE DYNAMIC TABLE.
-    var table = document.createElement("table");
+    // CREATE DYNAMIC GRAPH.
+    var graph = document.createElement("graph");
     // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
     var tr = table.insertRow(-1); // TABLE ROW.
     for (var i = 0; i < col.length; i++) {

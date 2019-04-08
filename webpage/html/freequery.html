@@ -28,6 +28,7 @@
     <script src="js/jsform.js"></script>
     <script src="js/jsluckystats.js"></script>
     <script src="js/jsgraph.js"></script>
+    <script src="js/jsgraphform.js"></script>
 
   <style>
         th, td, p, input {
@@ -52,20 +53,21 @@
         <div>
           <textarea id = "querytxt" rows = "5" cols = "40"></textarea>
           <br>
-          <input id="submit" onclick="freequery(document.getElementById('querytxt').value,'queryresult','qresulttable','thegraph')" type="button" value="Submit">
+          <input id="submit" onclick="freequery(document.getElementById('querytxt').value,'queryresult','qresulttable','varx')" type="button" value="Submit">
         </div>
       </form>
       <br>
       <p>
-<!--
-        <textarea id = "queryresult" rows = "15" cols = "50" onchange=createGraphFromJSON(document.getElementById('queryresult').value,'thegraph')></textarea>
-//-->
         <textarea id = "queryresult" rows = "15" cols = "50"></textarea>
       </p>
       <p id="qresulttable"></p>
     </div>
     <div class="split60 right">
     <h2>Graph:</h2>
+      <div>
+        Choose X-axis variable: 
+        <select id="varx" name="varx"></select>
+      </div>
       <p id="thegraph"></p>
     </div>
   </body>
