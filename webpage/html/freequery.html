@@ -53,7 +53,7 @@
         <div>
           <textarea id = "querytxt" rows = "5" cols = "40"></textarea>
           <br>
-          <input id="submit" onclick="freequery(document.getElementById('querytxt').value,'queryresult','qresulttable','varx')" type="button" value="Submit">
+          <input id="submit" onclick="freequery(document.getElementById('querytxt').value,'queryresult','qresulttable','varx','graphtype')" type="button" value="Submit">
         </div>
       </form>
       <br>
@@ -66,7 +66,11 @@
     <h2>Graph:</h2>
       <div>
         Choose X-axis variable: 
-        <select id="varx" name="varx" onchange="createGraphFromJSON(document.getElementById('queryresult').value,'thegraph',document.getElementById('varx').value)"></select>
+        <select id="varx" name="varx" onchange="createGraphFromJSON(document.getElementById('queryresult').value,'thegraph',document.getElementById('varx').value,document.getElementById('graphtype').value)"></select>
+        <br>
+        <br>
+        Choose graph type: 
+        <select id="graphtype" name="graphtype" onchange="createGraphFromJSON(document.getElementById('queryresult').value,'thegraph',document.getElementById('varx').value,document.getElementById('graphtype').value)"></select>
         <br>
         <br>
         <p id="thegraph"></p>

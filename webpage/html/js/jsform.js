@@ -1,4 +1,4 @@
-function freequery(querylabel, queryoutput, tableoutput, varx) {
+function freequery(querylabel, queryoutput, tableoutput, varx, graphtype) {
   var querytxt, querytxtJSON, xmlhttp; 
   var responseText;
 //  querytxt = document.getElementById(querylabel).value;
@@ -16,7 +16,7 @@ function freequery(querylabel, queryoutput, tableoutput, varx) {
       JSONtheresult = JSON.stringify(theresult);
       createTableFromJSON(theresult,tableoutput);
 //      createGraphFromJSON(theresult,graphoutput);
-      buildgraph(theresult,varx);
+      buildgraph(theresult,varx,graphtype);
     }
   });
   return false;

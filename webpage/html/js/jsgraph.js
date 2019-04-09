@@ -1,4 +1,4 @@
-function createGraphFromJSON(queryresult,container,varx) {
+function createGraphFromJSON(queryresult,container,varx,agraphtype) {
     console.log("Creating graph...");
     var JSONqueryresult = JSON.parse(queryresult);
     console.log(JSONqueryresult.length);
@@ -23,7 +23,7 @@ function createGraphFromJSON(queryresult,container,varx) {
     var datapoints = [];
     var adatapoint = {};
 
-    graphtype = "spline";
+    graphtype = agraphtype;
     for (var i = 0; i < col.length; i++) {
         if (col[i] === varx) {
             //do nothing;
