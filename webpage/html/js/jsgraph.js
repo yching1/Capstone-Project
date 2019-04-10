@@ -1,3 +1,5 @@
+var theChart;
+
 function createGraphFromJSON(queryresult,container,varx,agraphtype) {
     console.log("Creating graph...");
     var JSONqueryresult = JSON.parse(queryresult);
@@ -136,6 +138,10 @@ function createGraphFromJSON(queryresult,container,varx,agraphtype) {
 
     console.log(myChart);
     var ctx = document.getElementById(container).getContext('2d');
-    var theChart = new Chart(ctx, myChart);
+
+    if (theChart) {
+      theChart.destroy();
+    }
+    theChart = new Chart(ctx, myChart);
 
 }
