@@ -33,8 +33,8 @@ function buildgraph(queryresult,varx,graphtype) {
     dropdown2.length = 0;
     let defaultOption2 = document.createElement('option');
     option = document.createElement('option');
-    option.text = "Spline";
-    option.value = "spline";
+    option.text = "Line";
+    option.value = "line";
     dropdown2.add(option);
     option = document.createElement('option');
     option.text = "Column";

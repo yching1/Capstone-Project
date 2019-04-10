@@ -26,7 +26,6 @@ function createGraphFromJSON(queryresult,container,varx,agraphtype) {
     var xlabels = [];
 
     var chartColors15 = [
-        'rgba(0, 0, 0, 1)', 
         'rgba(0, 73, 73, 1)',
         'rgba(0, 146, 146, 1)',
         'rgba(255, 109, 182, 1)',
@@ -36,6 +35,7 @@ function createGraphFromJSON(queryresult,container,varx,agraphtype) {
         'rgba(109, 182, 255, 1)',
         'rgba(255, 182, 119, 1)',
         'rgba(182, 219, 255, 1)',
+        'rgba(0, 0, 0, 1)', 
         'rgba(146, 0, 0, 1)',
         'rgba(146, 73, 0, 1)',
         'rgba(219, 209, 0, 1)',
@@ -55,12 +55,12 @@ function createGraphFromJSON(queryresult,container,varx,agraphtype) {
 
     // Populate dataset for the graphs
     for (var i = 0; i < col.length; i++) {
-        adatapoint.length = 0;
-        adatum.length = 0;
+        adataset = [];
+        adataset.length = 0;
         for (var j = 0; j < JSONqueryresult.length; j++) {
             if (col[i] === varx) {
                 // The X values are stored as xlabels
-                xlabels.push(JSONqueryresult[j][col[i]])
+                xlabels.push(JSONqueryresult[j][col[i]]);
             } else { 
                 // data: [y0,y1,...];
                 console.log("adatum: %0: ", JSONqueryresult[j][col[i]]);
@@ -68,6 +68,7 @@ function createGraphFromJSON(queryresult,container,varx,agraphtype) {
             }
         }  
         if (col[i] === varx) {
+            // do nothing
         } else {
             coloridx += 1;
             if (coloridx > 14) {
@@ -81,6 +82,10 @@ function createGraphFromJSON(queryresult,container,varx,agraphtype) {
                 borderWidth: 1,
 		data: adatum
             };
+            console.log("Cleaning datum");
+            adatum = [];
+            adatum.length = 0;
+            console.log("Datum cleaned");
             console.log(adataset);
             alldatasets.push(adataset);
             console.log(JSON.stringify(alldatasets));
@@ -91,13 +96,24 @@ function createGraphFromJSON(queryresult,container,varx,agraphtype) {
         datasets: alldatasets        
     };
 
+    var isstacked = false;
+    if (graphtype === 'stackedColumn') {
+        isstacked = true;
+        graphtype = 'bar';
+    } else if (graphtype === 'column') {
+        isstacked = false;
+        graphtype = 'bar';
+    }
+
+    var charttitle = "Some graph";
+
     var myChart = {
-        type: graphtype.
+        type: graphtype,
         data: chartData,
         options: {
             title: {
                 display: true,
-                text: 'Chart.js Bar Chart - Stacked'
+                text: charttitle
             },
             tooltips: {
                 mode: 'index',
@@ -106,10 +122,10 @@ function createGraphFromJSON(queryresult,container,varx,agraphtype) {
             responsive: true,
             scales: {
                 xAxes: [{
-                    stacked: true,
+                    stacked: isstacked,
                 }],
                 yAxes: [{
-                    stacked: true,
+                    stacked: isstacked,
                     ticks: {
                         beginAtZero: true
                     }
@@ -118,33 +134,8 @@ function createGraphFromJSON(queryresult,container,varx,agraphtype) {
         }
     };
 
-    // CREATE DYNAMIC GRAPH.
-    var table = document.createElement("table");
-    // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
-    var tr = table.insertRow(-1); // TABLE ROW.
-    for (var i = 0; i < col.length; i++) {
-        if (col[i] === varx) {
-          var th = document.createElement("th"); // TABLE HEADER.
-          th.innerHTML = col[i];
-          tr.appendChild(th);
-        }
-    }
-    // ADD JSON DATA TO THE TABLE AS ROWS.
-    for (var i = 0; i < JSONqueryresult.length; i++) {
-        tr = table.insertRow(-1);
-        for (var j = 0; j < col.length; j++) {
-            if (col[j] === varx) {
-                var tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = JSONqueryresult[i][col[j]];
-            }
-        }
-    }
-    // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
-    console.log("Container name: " + container);
-    var divContainer = document.getElementById(container);
-    divContainer.innerHTML = "";
-    divContainer.appendChild(table);
-
-    var graphic = document.createElement("agraph");
+    console.log(myChart);
+    var ctx = document.getElementById(container).getContext('2d');
+    var theChart = new Chart(ctx, myChart);
 
 }

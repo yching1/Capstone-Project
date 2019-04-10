@@ -22,12 +22,12 @@
     <link href="css/nth-tabs.min.css" rel="stylesheet">
     <link href="css/nth-icons.css" rel="stylesheet">
     <link href="css/divscreen.css" rel="stylesheet">
+    <script src="js/jsgraph.js"></script>
+    <script src="js/jsgraphform.js"></script>
     <script src="js/jsquery.js"></script>
     <script src="js/jstable.js"></script>
     <script src="js/jsform.js"></script>
     <script src="js/jsluckystats.js"></script>
-    <script src="js/jsgraph.js"></script>
-    <script src="js/jsgraphform.js"></script>
 
   <style>
         th, td, p, input {
@@ -72,7 +72,9 @@
         <select id="graphtype" name="graphtype" onchange="createGraphFromJSON(document.getElementById('queryresult').value,'thegraph',document.getElementById('varx').value,document.getElementById('graphtype').value)"></select>
         <br>
         <br>
-        <p id="thegraph"></p>
+      </div>
+      <div>
+        <canvas id="thegraph" width="400" height="400"></canvas>
       </div>
     </div>
   </body>
