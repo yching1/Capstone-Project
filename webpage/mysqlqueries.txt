@@ -1,0 +1,42 @@
+SELECT DISTINCT a.win1 as WinningNumber, COUNT(a.win1) as Frequency
+FROM `MassCashTbl` a
+GROUP BY a.win1
+UNION ALL
+SELECT DISTINCT a.win2 as WinningNumber, COUNT(a.win2) as Frequency
+FROM `MassCashTbl` a
+GROUP BY a.win2
+UNION ALL
+SELECT DISTINCT a.win3 as WinningNumber, COUNT(a.win3) as Frequency
+FROM `MassCashTbl` a
+GROUP BY a.win3
+UNION ALL
+SELECT DISTINCT a.win4 as WinningNumber, COUNT(a.win4) as Frequency
+FROM `MassCashTbl` a
+GROUP BY a.win4
+UNION ALL
+SELECT DISTINCT a.win5 as WinningNumber, COUNT(a.win5) as Frequency
+FROM `MassCashTbl` a
+GROUP BY a.win5 
+UNIon ALL 
+ORDER BY Frequency DESC;
+
+
+SELECT DISTINCT a.win1 as WinningNumber, COUNT(a.win1) as Frequency
+FROM `MassCashTbl` a
+GROUP BY a.win1
+UNION ALL
+SELECT DISTINCT a.win2 as WinningNumber, COUNT(a.win2) as Frequency
+FROM `MassCashTbl` a
+GROUP BY a.win2
+UNION ALL
+SELECT DISTINCT a.win3 as WinningNumber, COUNT(a.win3) as Frequency
+FROM `MassCashTbl` a
+GROUP BY a.win3
+UNION ALL
+SELECT DISTINCT a.win4 as WinningNumber, COUNT(a.win4) as Frequency
+FROM `MassCashTbl` a
+GROUP BY a.win4
+UNION ALL
+SELECT DISTINCT a.win5 as WinningNumber, COUNT(a.win5) as Frequency
+FROM `MassCashTbl` a
+GROUP BY a.win5 ORDER BY WinningNumber;

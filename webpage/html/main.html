@@ -143,17 +143,19 @@
       <h1>MassCash Lottery Analyzer</h1>
       <div style="margin-top:20px;">
         <div style="line-height:50px;">
+            <button type="button" class="btn btn-primary" id="add-tab-analysis">Add Analysis</button>
             <button type="button" class="btn btn-primary" id="add-tab-query">Add New Query</button>
-            <button type="button" class="btn btn-primary" id="add-tab-analysis">Add New Analysis</button>
+            <button type="button" class="btn btn-warning" onclick="$('.roll-nav-left').click()">Scroll Left</button>
+            <button type="button" class="btn btn-warning" onclick="$('.roll-nav-right').click()">Scroll Right</button>
             <button type="button" class="btn btn-danger" onclick="nthTabs.delTab(nthTabs.getActiveId())">Close Tab</button>
             <button type="button" class="btn btn-danger" onclick="nthTabs.delOtherTab()">Close Others</button>
             <button type="button" class="btn btn-danger" onclick="nthTabs.delAllTab()">Close All</button>
-            <button type="button" class="btn btn-warning" onclick="$('.roll-nav-left').click()">Scroll Left</button>
-            <button type="button" class="btn btn-warning" onclick="$('.roll-nav-right').click()">Scroll Right</button>
+<!--
             <button type="button" class="btn btn-success" onclick="alert(nthTabs.getMarginStep())">Get Step</button>
             <button type="button" class="btn btn-success" onclick="alert(nthTabs.getActiveId())">Get Current ID</button>
             <button type="button" class="btn btn-success" onclick="alert(nthTabs.getAllTabWidth())">Get Width</button>
             <button type="button" class="btn btn-success" onclick="console.log(nthTabs.getTabList());alert(nthTabs.getTabList())">Get Tab List
+//-->
             </button>
         </div>
       </div>
