@@ -18,6 +18,7 @@ function createTableFromJSON(queryresult,container) {
             }
         }
     }
+    console.log("Keys: %0", col.length)
     // CREATE DYNAMIC TABLE.
     var table = document.createElement("table");
     // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.

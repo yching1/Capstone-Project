@@ -20,7 +20,7 @@ function buildgraph(queryresult,varx,graphtype) {
 
     let defaultOption = document.createElement('option');
 
-    for (let i = 0; i < count; i++) {
+    for (let i = 0; i < col.length; i++) {
       option = document.createElement('option');
       option.text = col[i];
       option.value = col[i];
