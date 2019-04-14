@@ -67,32 +67,37 @@
             });
 
             nthTabs.addTab({
-                id: 'freequery-1',
-                title: 'Query #1',
-                active: false,
-                content: 'Query',
-                allowClose: true,
-                url: "http://192.168.1.253/dev/webpage/html/freequery.html"
-            }).addTab({
                 id: 'analysis-1',
                 title: 'Analysis #1',
                 active: false,
-                content: 'Analysis',
+                content: 'Pre Analysis',
                 allowClose: true,
-               url: "http://192.168.1.253/MassCashAnalyzer.php"
+                url: "http://192.168.1.253/dev/webpage/html/analysis1.html"
+            }).addTab({
+                id: 'analysis-2',
+                title: 'Analysis #2',
+                active: false,
+                content: 'Pre Analysis',
+                allowClose: true,
+                url: "http://192.168.1.253/dev/webpage/html/analysis2.html"
             });
 
             $("#add-tab-analysis").on("click", function () {
-                var id = Math.ceil(Math.random() * 100);
-                nthTabs.addTab({
-                    id: "new-analysis-" + id,
-                    title: 'Analysis #' + id,
-                    content: 'Tab Content ' + id,
-                    active: true,
-                    allowClose: true,
-                    location: true,
-                    fadeIn: false
-                })
+              nthTabs.addTab({
+                id: 'analysis-1',
+                title: 'Analysis #1',
+                active: false,
+                content: 'Pre Analysis',
+                allowClose: true,
+                url: "http://192.168.1.253/dev/webpage/html/analysis1.html"
+              }).addTab({
+                id: 'analysis-2',
+                title: 'Analysis #2',
+                active: false,
+                content: 'Pre Analysis',
+                allowClose: true,
+                url: "http://192.168.1.253/dev/webpage/html/analysis2.html"
+              });
             });
 
             $("#add-tab-query").on("click", function () {
@@ -108,54 +113,22 @@
                 });
             });
 
-            $("#add-tab-url").on("click", function () {
-                var id = Math.ceil(Math.random() * 100);
-                nthTabs.addTab({
-                    id: "new-query-" + id,
-                    title: 'Query #' + id,
-                    url: "http://192.168.1.253/MassCashAnalyzer.php",
-                    active: true,
-                    allowClose: true,
-                    location: false,
-                    fadeIn: true
-                });
-            });
-
-            $("#add-tabs").on("click", function () {
-                nthTabs.addTabs([{
-                    id: 'database',
-                    title: 'Database',
-                    content: 'database'
-                }, {
-                    id: 'auth-manage',
-                    title: 'Auth',
-                    content: 'Auth Content'
-                }]);
-            });
-
         });
     </script>
   </head>
 
   <body>
 
-<!--    <div class="container wrapper"> -->
       <h1>MassCash Lottery Analyzer</h1>
       <div style="margin-top:20px;">
         <div style="line-height:50px;">
-            <button type="button" class="btn btn-primary" id="add-tab-analysis">Add Analysis</button>
+            <button type="button" class="btn btn-primary" id="add-tab-analysis">Add Pre Analysis</button>
             <button type="button" class="btn btn-primary" id="add-tab-query">Add New Query</button>
             <button type="button" class="btn btn-warning" onclick="$('.roll-nav-left').click()">Scroll Left</button>
             <button type="button" class="btn btn-warning" onclick="$('.roll-nav-right').click()">Scroll Right</button>
             <button type="button" class="btn btn-danger" onclick="nthTabs.delTab(nthTabs.getActiveId())">Close Tab</button>
             <button type="button" class="btn btn-danger" onclick="nthTabs.delOtherTab()">Close Others</button>
             <button type="button" class="btn btn-danger" onclick="nthTabs.delAllTab()">Close All</button>
-<!--
-            <button type="button" class="btn btn-success" onclick="alert(nthTabs.getMarginStep())">Get Step</button>
-            <button type="button" class="btn btn-success" onclick="alert(nthTabs.getActiveId())">Get Current ID</button>
-            <button type="button" class="btn btn-success" onclick="alert(nthTabs.getAllTabWidth())">Get Width</button>
-            <button type="button" class="btn btn-success" onclick="console.log(nthTabs.getTabList());alert(nthTabs.getTabList())">Get Tab List
-//-->
             </button>
         </div>
       </div>
@@ -163,6 +136,5 @@
         <div class="nth-tabs" id="main-tabs">
         </div>
       </div>
-<!--    </div> -->
   </body>
 </html>
