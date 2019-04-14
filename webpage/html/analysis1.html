@@ -29,6 +29,12 @@
     <script src="js/jsform.js"></script>
     <script src="js/jsluckystats.js"></script>
 
+    <script language="javascript">
+        function onLoadSubmit() {
+            document.form.submit();
+        }
+    </script>
+
   <style>
         th, td, p, input {
             font:14px Verdana;
@@ -45,14 +51,43 @@
         }
   </style>
 </head>
+<!--
+  <body onload="onLoadSubmit()">
+//-->
   <body>
     <div class="split40 left">
-      <h2>Submit your own mySQL query:</h2>
+      <h2>Analysis #1: Frequency</h2>
       <form id="form" name="form">
         <div>
-          <textarea id = "querytxt" rows = "5" cols = "40"></textarea>
+          <textarea id = "querytxt" rows = "5" cols = "40">
+SELECT DISTINCT b.WinningNumber, SUM(b.Frequency) as TotalFreq FROM 
+(
+SELECT DISTINCT a.win1 as WinningNumber, COUNT(a.win1) as Frequency
+FROM `MassCashTbl` a
+GROUP BY a.win1
+UNION ALL
+SELECT DISTINCT a.win2 as WinningNumber, COUNT(a.win2) as Frequency
+FROM `MassCashTbl` a
+GROUP BY a.win2
+UNION ALL
+SELECT DISTINCT a.win3 as WinningNumber, COUNT(a.win3) as Frequency
+FROM `MassCashTbl` a
+GROUP BY a.win3
+UNION ALL
+SELECT DISTINCT a.win4 as WinningNumber, COUNT(a.win4) as Frequency
+FROM `MassCashTbl` a
+GROUP BY a.win4
+UNION ALL
+SELECT DISTINCT a.win5 as WinningNumber, COUNT(a.win5) as Frequency
+FROM `MassCashTbl` a
+GROUP BY a.win5
+) as b
+GROUP BY b.WinningNumber
+ORDER BY TotalFreq DESC
+;
+          </textarea>
           <br>
-          <input id="submit" onclick="freequery(document.getElementById('querytxt').value,'queryresult','qresulttable','varx','graphtype')" type="button" value="Submit">
+          <input id="btnsubmit" onclick="freequery(document.getElementById('querytxt').value,'queryresult','qresulttable','varx','graphtype')" type="button" value="Submit">
         </div>
       </form>
       <br>
@@ -64,11 +99,11 @@
     <div class="split60 right">
     <h2>Graph:</h2>
       <div>
-        Choose X-axis variable: 
+        X-axis variable:
         <select id="varx" name="varx" onchange="createGraphFromJSON(document.getElementById('queryresult').value,'thegraph',document.getElementById('varx').value,document.getElementById('graphtype').value)"></select>
         <br>
         <br>
-        Choose graph type: 
+        Graph type:
         <select id="graphtype" name="graphtype" onchange="createGraphFromJSON(document.getElementById('queryresult').value,'thegraph',document.getElementById('varx').value,document.getElementById('graphtype').value)"></select>
         <br>
         <br>
@@ -77,5 +112,9 @@
         <canvas id="thegraph"></canvas>
       </div>
     </div>
+    <script>
+        freequery(document.getElementById('querytxt').value,'queryresult','qresulttable','varx','graphtype');
+    </script>
   </body>
 </html>
+

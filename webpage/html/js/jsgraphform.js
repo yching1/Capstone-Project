@@ -44,7 +44,7 @@ function buildgraph(queryresult,varx,graphtype) {
     option.text = "Stacked Column";
     option.value = "stackedColumn";
     dropdown2.add(option);
-    dropdown2.selectedIndex = 0;
+    dropdown2.selectedIndex = 1;
 
     createGraphFromJSON(queryresult,'thegraph', document.getElementById(varx).value, document.getElementById(graphtype).value);
 }
